@@ -1,0 +1,54 @@
+---
+title: "台風1号"
+author: "kazutan"
+date: "`r format(Sys.time(), '%y年%m年%d %H時%M分', tz='Japan')`"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: "row"
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+source("R/2016typhoon1.R")
+```
+
+
+row {data-height=20%}
+----
+
+### card1 {.no-title}
+
+```{r}
+valueBox(paste(res$hpa[1], "hpa"), caption = "中心気圧")
+```
+
+### card2 {.no-title}
+
+```{r}
+valueBox(res$c_wspeed[1], caption = "最大風速")
+```
+
+### card3 {.no-title}
+
+```{r}
+valueBox(res$m_wspeed[1], caption = "瞬間最大風速")
+```
+
+column {data-height=80%}
+----
+
+### 地図  {data-width=70%}
+
+```{r}
+m
+```
+
+### 今後の予想 {data-width=30%}
+
+```{r}
+knitr::kable(paste0(res$popup,"<hr>"))
+```
+
+
+
+
