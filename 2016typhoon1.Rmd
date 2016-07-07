@@ -5,6 +5,10 @@ date: "`r format(Sys.time(), '%y年%m年%d %H時%M分', tz='Japan')`"
 output: 
   flexdashboard::flex_dashboard:
     orientation: "row"
+    navbar:
+      - { title: "気象庁 - 台風情報", href: "http://www.jma.go.jp/jp/typh/"}
+    social: [ "twitter", "google-plus", "menu"]
+    source_code: "http://github.com/kazutan/typhoon2016"
 ---
 
 ```{r setup, include=FALSE}
